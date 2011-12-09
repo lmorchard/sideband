@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sideband</title>
+        <link href="css/main.css" rel="stylesheet" type="text/css">
+        <link rel="icon" type="image/png" href="img/icon.jpg" />
+        <link rel="apple-touch-icon" href="img/icon.jpg" /> 
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+    </head>
+    <body>
+        <section id="main">
+            <h1><img src="img/icon.jpg" width="32" height="32" />Sideband</h1>
+            <p id="to_docs" class="pre-login"><a href="#docs">What is this?</a></p>
+
+            <div id="post-app">
+
+                <form id="login" class="login pre-login">
+                    <fieldset class="user">
+                        <legend>Login</legend>
+                        <ul>
+                            <li><label>Bucket</label>
+                                <input type="text" name="bucket" required="required"
+                                    placeholder="Bucket" />
+                            </li>
+                            <li><label>Username</label>
+                                <input type="text" name="username" required="required" 
+                                    placeholder="Username" />
+                            </li>
+                            <li><label>Password</label>
+                                <input type="password" name="password" required="required"
+                                    placeholder="Password" />
+                            </li>
+                            <li class="remember">
+                                <label for="id_remember">Stay logged in?</label>
+                                <input type="checkbox" id="id_remember" name="remember" 
+                                    checked="checked" />
+                            </li>
+                        </ul>
+                    </fieldset>
+                    <fieldset class="buttons">
+                        <button class="login"><span>Login</span></button>
+                    </fieldset>
+                </form>
+
+                <form id="register" class="register pre-login">
+                    <fieldset class="user">
+                        <legend>Register</legend>
+                        <ul>
+                            <li><label>Bucket</label>
+                                <input type="text" name="bucket" required="required" 
+                                    placeholder="Bucket"/></li>
+                            <li><label>Username</label>
+                                <input type="text" name="username" required="required" 
+                                    placeholder="Username" /></li>
+                            <li><label>Password</label>
+                                <input type="password" name="password" required="required" 
+                                    placeholder="Password" /></li>
+                            <li><label>Password (again)</label>
+                                <input type="password" name="password_confirm" 
+                                    required="required" data-confirm="password" 
+                                    placeholder="Password (again)" /></li>
+                            <li><label>Key ID</label>
+                                <input type="text" name="key_id" required="required" 
+                                    placeholder="Key ID" /></li>
+                            <li><label>Secret Key</label>
+                                <input type="text" name="secret_key" required="required" 
+                                    placeholder="Secret Key" /></li>
+                        </ul>
+                    </fieldset>
+                    <fieldset class="prefs">
+                        <legend>Prefs</legend>
+                        <ul>
+                            <li><label>Name</label>
+                                <input type="text" name="displayName" required="required" 
+                                    placeholder="Display Name" /></li>
+                            <li><label>Email</label>
+                                <input type="text" name="email" required="required" 
+                                    placeholder="Email" /></li>
+                            <li><label>URL</label>
+                                <input type="text" name="url" 
+                                    placeholder="URL" /></li>
+                            <li><label>Bio</label>
+                                <textarea name="summary" cols="50" rows="7" 
+                                    placeholder="Bio"></textarea></li>
+                        </ul>
+                    </fieldset>
+                    <fieldset class="buttons">
+                        <button class="register"><span>Register</span></button>
+                    </fieldset>
+                </form>
+
+                <form class="user needs-login">
+                    <fieldset>
+                        <button class="editPrefs"><span>Prefs</span></button>
+                        <button class="installApp"><span>Install App</span></button>
+                        <button class="logout"><span>Logout</span></button>
+                    </fieldset>
+                    <ul class="outputs">
+                        <li><a class="url_html" href="" target="_blank" 
+                            data-url="index.html">HTML</a></li>
+                        <li><a class="url_rss" href="" target="_blank" 
+                            data-url="feeds/activities.rss">RSS</a></li>
+                        <li><a class="url_json" href="" target="_blank" 
+                            data-url="feeds/activities.json">JSON</a></li>
+                    </ul>
+                </form>
+
+                <form class="prefs needs-login hidden">
+                    <fieldset>
+                        <legend>Prefs</legend>
+                        <ul>
+                            <li><label>Name</label>
+                                <input type="text" name="displayName" required="required" /></li>
+                            <li><label>Email</label>
+                                <input type="text" name="email" required="required" /></li>
+                            <li><label>URL</label>
+                                <input type="text" name="url" /></li>
+                            <li><label>Bio</label>
+                                <textarea name="summary" cols="50" rows="7"></textarea></li>
+                        </ul>
+                    </fieldset>
+                    <fieldset class="buttons">
+                        <button class="save"><span>Save</span></button>
+                        <button class="cancel"><span>Cancel</span></button>
+                        <button class="destroyPrefs"><span>Destroy Account</span></button>
+                    </fieldset>
+                </form>
+
+                <form class="activity needs-login">
+
+                    <fieldset class="verb">
+                        <legend>Verb</legend>
+                        <ul>
+                            <li id="f_verb">
+                                <label>Verb</label>
+                                <select id="verb">
+                                    <option value="post">post</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+                    <fieldset class="object">
+                        <legend>Object</legend>
+                        <ul>
+                            <li id="f_object_type">
+                                <label>Type</label>
+                                <select id="object_type">
+                                    <option value="note">note</option>
+                                </select>
+                            </li>
+                            <li id="f_object_displayName">
+                                <label>Name</label>
+                                <input type="text" id="object_displayName" />
+                            </li>
+                            <li id="f_object_content">
+                                <label>Content</label>
+                                <textarea id="object_content" cols="50" rows="7"></textarea>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+                    <fieldset class="buttons">
+                        <legend>Buttons</legend>
+                        <button class="post"><span>Post</span></button>
+                        <button class="reset"><span>Reset</span></button>
+                    </fieldset>
+
+                </form>
+
+                <section class="activities needs-login">
+                    <ul class="stream">
+                    </ul>
+                </section>
+
+                <ul class="templates hidden">
+                    <li id="activity-template" class="activity">
+                        <span class="published"></span>
+                        <img class="image" src="" width="" height="" />
+                        <div class="object">
+                            <a class="displayName" href="">name</a>
+                            <p class="content"></p>
+                        </div>
+                        <span class="buttons">
+                            <button class="delete"><span>Delete</span></button>
+                            <button class="edit"><span>Edit</span></button>
+                        </span>
+                    </li>
+                </ul>
+
+            </div>
+
+            <section id="docs" class="docs pre-login">
+                <script type="markdown" src="README.markdown"></script>
+            </section>
+
+        </section>
+
+        <script type="text/javascript" src="http://myapps.mozillalabs.com/jsapi/include.js"></script>
+
+        <script src="js/extlib/jquery.js" type="text/javascript"></script>
+        <script src="js/extlib/showdown.js" type="text/javascript"></script>
+        <script src="js/extlib/async.js" type="text/javascript"></script>
+        <script src="js/extlib/underscore.js" type="text/javascript"></script>
+        <script src="js/extlib/backbone.js" type="text/javascript"></script>
+        <script src="js/extlib/gibberish-aes.js" type="text/javascript"></script>
+        <script src="js/extlib/md5.js" type="text/javascript"></script>
+        <script src="js/extlib/sha1.js" type="text/javascript"></script>
+        <script src="js/extlib/S3Ajax.js" type="text/javascript"></script>
+
+        <script src="js/sideband/s3sync.js" type="text/javascript"></script>
+        <script src="js/sideband/prefs.js" type="text/javascript"></script>
+        <script src="js/sideband/models.js" type="text/javascript"></script>
+        <script src="js/sideband/views.js" type="text/javascript"></script>
+        <script src="js/sideband/feeds.js" type="text/javascript"></script>
+        <script src="js/sideband/main.js" type="text/javascript"></script>
+
+    </body>
+</html>
+

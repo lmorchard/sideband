@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Activities</title>
+    <link href="http://s3.amazonaws.com/twas/feeds/activity.atom" rel="self"/>
+    <link href="http://s3.amazonaws.com/twas/"/>
+    <updated>2011-11-16T16:29:50+00:00</updated>
+        <% _.each(items, function (item) { %>
+            <entry>
+                <title><%- item.get("object").displayName %></title>
+                <link href="http://s3.amazonaws.com/twas/<%= item.url() %>"/>
+                <id>http://s3.amazonaws.com/twas/<%= item.url() %></id>
+                <updated><%- item.get("published") %></updated>
+                <content type="html"><%- item.get("object").content %></content>
+            </entry>
+        <% }); %>
+    </channel>
+</feed>

@@ -1,0 +1,258 @@
+body {
+     color: #111111;
+     font-family: Helvetica,Arial,sans-serif;
+     font-size: 14px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+     font-family: Georgia,serif;
+}
+
+p, li {
+     font-size: 13px;
+     line-height: 20px;
+     margin: 10px 0pt;
+}
+
+form {
+     border-radius: 4px 4px 4px 4px;
+     border: 1px solid #DDDDDD;
+     margin: 1.5em 0pt;
+     padding: 0.75em;
+}
+
+form fieldset {
+     border: medium none;
+     margin: 0pt;
+     padding: 0pt;
+}
+
+form fieldset legend {
+     display: none;
+}
+
+form fieldset ul {
+     list-style: none outside none;
+     margin: 0pt;
+     padding: 0pt;
+}
+
+form fieldset ul li {
+     margin: 0.25em;
+     padding: 0pt;
+}
+
+form fieldset ul li label {
+     display: none;
+     float: left;
+     font-size: 13px;
+     line-height: 20px;
+     margin: 0pt 0.5em 0pt 0pt;
+     text-align: right;
+     width: 18ex;
+}
+
+input, textarea {
+     border-radius: 3px 3px 3px 3px;
+     border: 1px solid #E5E5E5;
+     font-family: Helvetica,Arial,sans-serif;
+     font-size: 13px;
+     line-height: 20px;
+     margin: 0em;
+     outline: 0pt none;
+     padding: 0.5em;
+}
+
+input:hover, textarea:hover, input:focus, textarea:focus {
+     border-color: #C9C9C9;
+}
+
+form fieldset ul li.error {
+     background: none repeat scroll 0% 0% #FFDDDD;
+}
+
+form fieldset.buttons {
+     clear: both;
+     float: none;
+     margin: 0.5em 0.25em;
+}
+
+button {
+     background: none repeat scroll 0% 0% #F8F8F8;
+     border-radius: 6px 6px 6px 6px;
+     border: 1px solid #CCCCCC;
+     margin: 0em;
+}
+
+button:hover {
+     background: none repeat scroll 0% 0% #F3F3F3;
+     border-color: #C9C9C9;
+     cursor: pointer;
+}
+
+button span {
+     display: block;
+     font-weight: bold;
+     padding: 0.5em;
+}
+
+form#login ul {
+     margin: 0pt;
+     padding: 0pt;
+}
+
+form#login fieldset.user {
+     position: relative;
+}
+
+form#login fieldset.user ul li {
+    
+}
+
+form#login fieldset.user ul li label {
+     display: none;
+}
+
+form#login fieldset.user ul li.remember {
+     line-height: 2.5em;
+     text-align: center;
+}
+
+form#login fieldset.user ul li.remember label {
+     color: #666666;
+     display: inline;
+     float: none;
+     font-size: 105%;
+     line-height: 4em;
+     margin: 0pt 0.5em;
+     text-align: center;
+}
+
+form#login fieldset.user ul li.remember input {
+     display: inline;
+}
+
+form#login fieldset ul li input[type="text"], 
+form#login fieldset ul li input[type="password"], 
+form#login fieldset ul li textarea {
+     text-align: center;
+     width: 95%;
+}
+
+form#login button.login, form#register button.register {
+     width: 100%;
+}
+
+form#register fieldset ul li input[type="text"], 
+form#register fieldset ul li input[type="password"], 
+form#register fieldset ul li textarea {
+     text-align: center;
+     width: 95%;
+}
+
+form#register fieldset.prefs {
+     border-top: 2px dotted #C8C8C8;
+     margin: 1em 0pt 0pt;
+     padding: 1em 0pt 0pt;
+}
+
+form.prefs fieldset ul li label {
+     display: block; 
+     float: none;
+     color: #888; 
+     width: inherit; 
+     font-size: 90%;
+     text-align: inherit;
+}
+
+section#main {
+     position: relative;
+}
+
+.hidden {
+     display: none;
+}
+
+p#to_docs {
+     margin: 0pt;
+     padding: 0pt;
+     position: absolute;
+     right: 0em;
+     top: 1em;
+}
+
+.docs {
+     background: none repeat scroll 0% 0% #F8F8F8;
+     border-radius: 4px 4px 4px 4px;
+     border: 1px solid #DDDDDD;
+     clear: both;
+     margin: 0.5em 0pt;
+     padding: 0.75em;
+}
+
+.pre-login { display: block; }
+.needs-login { display: none; }
+.logged-in .pre-login { display: none; }
+.logged-in .needs-login { display: block; }
+.logged-in .hidden { display: none; }
+
+#post-app .user { position: relative; }
+#post-app .user ul.outputs {
+    list-style: none outside none;
+    margin: 0pt;
+    padding: 0pt;
+    position: absolute;
+    top: 1em;
+    right: 0.25em;
+}
+#post-app .user ul.outputs li {
+    list-style: none outside none;
+    margin: 0pt 0.5em;
+    padding: 0pt;
+    display: inline;
+}
+
+#post-app form.activity {
+    
+}
+
+#post-app section.activities {
+    
+}
+
+#post-app section.activities .stream {
+     list-style: none outside none;
+     margin: 0pt;
+     padding: 0pt;
+}
+
+#post-app section.activities .stream li.activity {
+     margin: 1em 0pt;
+}
+
+#post-app section.activities .stream li.activity .object p.content {
+     margin: 0.5em 1.25em;
+     padding: 0pt;
+}
+
+@media screen and (min-width: 320px) and (max-width: 749px) {
+  #main { margin: 5px 10px; }
+  #main h1 { font-size: 125%; }
+  form fieldset ul li input {  }
+  form fieldset ul li textarea { }
+}
+
+@media screen and (min-width: 750px) {
+  #main { width: 750px; margin: 0pt auto; }
+  .docs { padding: 8px 24px; margin: 24px auto; }
+  form#register fieldset.user, form#register fieldset.prefs { float: left; width: 49.5%; }
+  form#register fieldset.prefs { margin: 0pt; }
+  form#login fieldset.user ul li { float: left; }
+  form#login fieldset.user ul li input { width: 22ex; }
+  form#login fieldset.user ul li.remember label { display: inline; width: inherit; line-height: 2.5em; }
+  form#login fieldset.user ul li.remember input { display: inline; width: inherit; }
+  form#register fieldset.prefs { margin: 0pt; padding: 0pt; border: medium none; }
+  form.prefs fieldset ul li label {
+     display: block; line-height: 2.5em; color: #888; width: 8ex;
+  }
+}

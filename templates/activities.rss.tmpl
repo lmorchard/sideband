@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Activities</title>
+        <link>http://s3.amazonaws.com/twas/</link>
+        <% _.each(items, function (item) { %>
+            <item>
+                <pubDate><%- item.get("published") %></pubDate>
+                <link>http://s3.amazonaws.com/twas/<%= item.url() %></link>
+                <title><%- item.get("object").displayName %></title>
+                <description><%- item.get("object").content %></description>
+            </item>
+        <% }); %>
+    </channel>
+</rss>

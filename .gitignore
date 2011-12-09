@@ -1,0 +1,9 @@
+*.sw*
+*.pyc
+.vagrant
+xfers/*
+tmp/*
+output/*
+code/data/*
+code/python/env/*
+node_modules/*

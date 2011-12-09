@@ -1,0 +1,14 @@
+{
+    "name": "Sideband",
+    "version": "0.1",
+    "description": "An Activity Stream transmitter",
+    "developer": {
+        "name": "Les Orchard",
+        "url": "http://lmorchard.com/"
+    },
+    "installs_allowed_from": [ "*" ],
+    "launch_path": "http://s3.amazonaws.com/sideband/app.html",
+    "icons": {
+        "32": "http://s3.amazonaws.com/sideband/img/icon.jpg"
+    }
+}
