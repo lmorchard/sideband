@@ -16,9 +16,7 @@ var Sideband_main = {
             $this.setupFeeds();
             $this.setupEvents();
 
-            if ('mozApps' in navigator) {
-                $this.setupApp();
-            }
+            $this.setupApp();
 
         });
 
@@ -26,11 +24,12 @@ var Sideband_main = {
     },
 
     setupApp: function () {
+        if (!('mozApps' in navigator)) { return; }
         var $this = this;
-        return;
         navigator.mozApps.amInstalled(function (data) {
             $this.app_data = data;
             console.log("APP IS INSTALLED");
+            $('button.installApp').hide();
         });
     },
 

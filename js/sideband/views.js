@@ -140,27 +140,21 @@ var Sideband_Views_App = Backbone.View.extend({
 
     installApp: function (ev) {
         var $this = this;
-        console.log("INSTALL THE APP");
-        try {
-            navigator.mozApps.install(
-                "http://s3.amazonaws.com/sideband/app.webapp", null,
-                function (result) {
-                    console.log("INSTALL", result);
-                },
-                function (result) {
-                    console.log("INSTALL FAIL", result);
-                }
-            );
-            console.log("CALLED INSTALL");
-        } catch (e) {
-            console.error(e);
-        }
+        navigator.mozApps.install(
+            "/sideband/app.webapp",
+            null,
+            function (result) {
+                window.alert("Thanks for installing Sideband. Check your App Dashboard!");
+            },
+            function (result) {
+            }
+        );
         return false;
     },
     
     alert: function(msg) {
         window.alert(msg);
-        console.log("ACHTUNG! " + msg);
+        console.log("ALERT! " + msg);
     }
 });
 
