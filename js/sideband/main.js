@@ -8,19 +8,18 @@ var Sideband_main = {
         var $this = this;
         this.prefs = new Sideband_Prefs();
         $(document).ready(function () {
+            
             $this.renderMarkdown();
+
             $this.setupModels();
             $this.setupViews();
             $this.setupFeeds();
             $this.setupEvents();
 
-            console.log("HI");
-            console.log(navigator.mozActivities);
-            console.log("BYE");
-
             if ('mozApps' in navigator) {
                 $this.setupApp();
             }
+
         });
 
         return this;

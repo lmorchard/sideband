@@ -99,8 +99,8 @@ damage can be minimized in case I'm totally mistaken about what I'm doing here.
 [s3website]: http://aws.typepad.com/aws/2011/02/host-your-static-website-on-amazon-s3.html
 [stream]: http://stream.lmorchard.com
 [accesskeys]: https://aws-portal.amazon.com/gp/aws/developer/account/index.html?action=access-key#access_credentials
-[register]: #register
-[login]: #login
+[register]: http://s3.amazonaws.com/app.html#register
+[login]: http://s3.amazonaws.com/app.html#login
 [jacwright]: http://jacwright.com/556/client-side-only-javascript-amazon-s3-cms/
 [aes]: https://github.com/mdp/gibberish-aes
 [source]: https://github.com/lmorchard/sideband

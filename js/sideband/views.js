@@ -1,43 +1,24 @@
 //
 //
 //
-// verb/object pairs:
-// * checkin
-//  * place
-//      * location
-// * like 
-//  * audio
-//  * article
-//  * image
-//  * place
-//  * person
-//  * video
-// * play
-//  * audio
-//  * video
-// * post
-//  * article - to blog?
-//  * image
-//  * file
-//  * audio
-//  * video
-//  * note
-// * save
-//  * bookmark
-//  * file
-// * share
-//  * article
-//  * bookmark
-//  * event
-//  * file
-//  * image
-//  * note
-//
-// extensions?
-// * mood
-// * location
-// * rating
-// * source
+var Sideband_Avatar = function () {
+    return this.init.apply(this, arguments);
+};
+_.extend(Sideband_Avatar.prototype, {
+    defaults: {
+        email: '',
+        size: 80,
+        base: 'http://www.gravatar.com/avatar/'
+    },
+    init: function (options) {
+        this.options = _.extend({}, this.defaults, options);
+    },
+    url: function (email, size) {
+        return this.options.base +
+            hex_md5(this.options.email) +
+            '?s=' + this.options.size;
+    }
+});
 
 var Sideband_Views_App = Backbone.View.extend({
 
@@ -108,7 +89,21 @@ var Sideband_Views_App = Backbone.View.extend({
     login: function () {
         var $this = this;
         $(document.body).addClass('logged-in');
-        try {
+
+        var avatar = new Sideband_Avatar({ 
+            email: this.prefs.get('email')
+        });
+    try {
+        $('.profile .avatar')
+            .attr('href', this.prefs.get('url'))
+            .find('img')
+                .attr('src', avatar.url())
+            .end()
+            .find('.displayName')
+                .text(this.prefs.get('displayName'))
+            .end()
+            ;
+
         this.$('ul.urls li a').each(function (i, raw) {
             var el = $(raw),
                 href = '/'+$this.prefs.bucket+'/'+el.attr('data-url');
@@ -148,7 +143,7 @@ var Sideband_Views_App = Backbone.View.extend({
         console.log("INSTALL THE APP");
         try {
             navigator.mozApps.install(
-                "/sideband/manifest.webapp", null,
+                "http://s3.amazonaws.com/sideband/app.webapp", null,
                 function (result) {
                     console.log("INSTALL", result);
                 },
@@ -495,7 +490,9 @@ var Sideband_Views_Activity = Backbone.View.extend({
         if (!a) { return; }
 
         this.el.attr('id', 'activity-' + a.get('id'));
-        this.$('.published').text(a.get('published'));
+        this.$('.published')
+            .attr('datetime', a.get('published'))
+            .text(a.get('published'));
 
         var o = a.get('object');
         this.$('.object')
@@ -514,6 +511,8 @@ var Sideband_Views_Activity = Backbone.View.extend({
                 .attr('width', i.width)
                 .attr('height', i.height);
         }
+
+        this.el.find('.timeago').timeago();
 
         return this;
     },
