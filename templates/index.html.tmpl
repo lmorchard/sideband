@@ -11,13 +11,18 @@
     </head>
     <body>
         <h1>Activities</h1>
-        <% _.each(items, function (item) { %>
-            <section id="activity-<%- item.id %>">
-                <h3><%- item.get("object").displayName %></h3>
-                <pubDate><%- item.get("published") %></pubDate>
-                <link>http://s3.amazonaws.com/twas/<%= item.url() %></link>
-                <p><%- item.get("object").content %></p>
-            </section>
-        <% }); %>
+        <ul class="hfeed">
+            <% _.each(items, function (item) { %>
+                <li class="hentry" id="activity-<%- item.id %>">
+                    <% if (item.get("object").displayName) { %>
+                        <h3 class="entry-title"><%- item.get("object").displayName %></h3>
+                    <% } %>
+                    <time class="published" datetime="<%- item.get("published") %>">
+                        <%- item.get("published") %>
+                    </time>
+                    <p class="entry-content"><%- item.get("object").content %></p>
+                </li>
+            <% }); %>
+        </ul>
     </body>
 </html>

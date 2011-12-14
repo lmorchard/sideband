@@ -6,30 +6,30 @@ var Sideband_main = {
 
     init: function () {
         var $this = this;
-        this.prefs = new Sideband_Prefs();
         $(document).ready(function () {
-            
-            $this.renderMarkdown();
-
-            $this.setupModels();
-            $this.setupViews();
-            $this.setupFeeds();
-            $this.setupEvents();
-
-            $this.setupApp();
-
+            $this.ready();
         });
-
         return this;
     },
 
+    ready: function () {
+        this.prefs = new Sideband_Prefs();
+        this.renderMarkdown();
+        this.setupModels();
+        this.setupViews();
+        this.setupFeeds();
+        this.setupEvents();
+        if ('mozApps' in navigator) {
+            this.setupApp();
+        }
+    },
+
     setupApp: function () {
-        if (!('mozApps' in navigator)) { return; }
         var $this = this;
         navigator.mozApps.amInstalled(function (data) {
             $this.app_data = data;
             console.log("APP IS INSTALLED");
-            $('button.installApp').hide();
+            // $('button.installApp').hide();
         });
     },
 
@@ -40,7 +40,7 @@ var Sideband_main = {
                 src_url = el.attr('src');
             $.get(src_url, function (md_src) {
                 var html_out = md.makeHtml(md_src);
-                var new_el = $('<div/>').html(html_out);
+                var new_el = $('<div class="markdown"></div>').html(html_out);
                 el.before(new_el).remove();
             });
         });

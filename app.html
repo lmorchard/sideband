@@ -11,7 +11,7 @@
     </head>
     <body>
         <section id="main">
-            <h1><img src="img/icon.jpg" width="32" height="32" />Sideband</h1>
+            <h1><img class="icon" src="img/icon.jpg" width="32" height="32" />Sideband</h1>
             <p id="to_docs" class="pre-login"><a href="#docs">What is this?</a></p>
 
             <div id="post-app">
@@ -93,7 +93,10 @@
 
                 <form class="global-actions needs-login">
                     <fieldset>
-                        <button class="installApp"><span>Install App</span></button>
+                        <span class="avatar">
+                            <img src="" width="" height="" alt="" title="" />
+                            <span class="displayName"></span>
+                        </span>
                         <button class="editPrefs"><span>Prefs</span></button>
                         <button class="logout"><span>Logout</span></button>
                     </fieldset>
@@ -117,33 +120,14 @@
                         <button class="save"><span>Save</span></button>
                         <button class="cancel"><span>Cancel</span></button>
                         <button class="destroyPrefs"><span>Destroy Account</span></button>
+                        <button class="installApp"><span>Install App</span></button>
                     </fieldset>
                 </form>
-
-                <div class="profile needs-login">
-                    <div class="wrapper">
-                        
-                        <a class="avatar" href="">
-                            <img src="" width="" height="" />
-                            <span class="displayName"></span>
-                        </a>
-
-                        <ul class="outputs">
-                            <li><a class="url_html" href="" target="_blank" 
-                                data-url="index.html">HTML</a></li>
-                            <li><a class="url_rss" href="" target="_blank" 
-                                data-url="feeds/activities.rss">RSS</a></li>
-                            <li><a class="url_json" href="" target="_blank" 
-                                data-url="feeds/activities.json">JSON</a></li>
-                        </ul>
-
-                    </div>
-                </div>
 
                 <div class="needs-login activity-forms">
 
                     <form id="activity-post-note" class="activity verb-post type-note">
-                        <textarea name="object_content"></textarea>
+                        <textarea name="content"></textarea>
                         <button class="post"><span>Post</span></button>
                     </form>
 
@@ -156,15 +140,18 @@
 
                 <ul class="templates hidden">
                     <li id="activity-template" class="activity">
-                        <time class="timeago published" datetime=""></time>
-                        <img class="image" src="" width="" height="" />
+                        <a class="published" href="">
+                            <time class="timeago" datetime=""></time>
+                        </a>
+                        <div class="actor">
+                            <img class="image" src="" width="" height="" />
+                        </div>
                         <div class="object">
-                            <a class="displayName" href="">name</a>
                             <p class="content"></p>
                         </div>
                         <span class="buttons">
                             <button class="delete"><span>Delete</span></button>
-                            <button class="edit"><span>Edit</span></button>
+                            <!-- <button class="edit"><span>Edit</span></button> -->
                         </span>
                     </li>
                 </ul>

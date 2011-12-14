@@ -7,6 +7,7 @@ js/extlib/async.js
 js/extlib/backbone.js
 js/extlib/gibberish-aes.js
 js/extlib/jquery.js
+js/extlib/jquery.timeago.js
 js/extlib/md5.js
 js/extlib/qunit.js
 js/extlib/require.js

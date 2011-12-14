@@ -1,329 +1,357 @@
 body {
-    color: #111111;
-    font-family: Helvetica,Arial,sans-serif;
-    font-size: 14px;
+     color: #111111;
+     font-family: Helvetica,Arial,sans-serif;
+     font-size: 14px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: Georgia,serif;
+     font-family: Georgia,serif;
 }
 
 p, li {
-    font-size: 13px;
-    line-height: 20px;
-    margin: 10px 0pt;
+     font-size: 13px;
+     line-height: 20px;
+     margin: 10px 0pt;
 }
 
 form {
-    border-radius: 4px 4px 4px 4px;
-    border: 1px solid #DDDDDD;
-    margin: 1.5em 0pt;
-    padding: 0.75em;
+     border-radius: 4px 4px 4px 4px;
+     border: 1px solid #DDDDDD;
+     margin: 1.5em 0pt;
+     padding: 0.75em;
 }
 
 form fieldset {
-    border: medium none;
-    margin: 0pt;
-    padding: 0pt;
+     border: medium none;
+     margin: 0pt;
+     padding: 0pt;
 }
 
 form fieldset legend {
-    display: none;
+     display: none;
 }
 
 form fieldset ul {
-    list-style: none outside none;
-    margin: 0pt;
-    padding: 0pt;
+     list-style: none outside none;
+     margin: 0pt;
+     padding: 0pt;
 }
 
 form fieldset ul li {
-    margin: 0.25em;
-    padding: 0pt;
+     margin: 0.25em;
+     padding: 0pt;
 }
 
 form fieldset ul li label {
-    display: none;
-    float: left;
-    font-size: 13px;
-    line-height: 20px;
-    margin: 0pt 0.5em 0pt 0pt;
-    text-align: right;
-    width: 18ex;
+     display: none;
+     float: left;
+     font-size: 13px;
+     line-height: 20px;
+     margin: 0pt 0.5em 0pt 0pt;
+     text-align: right;
+     width: 18ex;
 }
 
 input, textarea {
-    border-radius: 3px 3px 3px 3px;
-    border: 1px solid #E5E5E5;
-    font-family: Helvetica,Arial,sans-serif;
-    font-size: 13px;
-    line-height: 20px;
-    margin: 0em;
-    outline: 0pt none;
-    padding: 0.5em;
+     border-radius: 3px 3px 3px 3px;
+     border: 1px solid #DDDDDD;
+     font-family: Helvetica,Arial,sans-serif;
+     font-size: 13px;
+     line-height: 20px;
+     margin: 0em;
+     outline: 0pt none;
+     padding: 0.5em;
+}
+
+textarea {
+     height: 11.5ex;
 }
 
 input:hover, textarea:hover, input:focus, textarea:focus {
-    border-color: #C9C9C9;
+     border-color: #BBBBBB;
 }
 
 form fieldset ul li.error {
-    background: none repeat scroll 0% 0% #FFDDDD;
+     background: none repeat scroll 0% 0% #FFDDDD;
 }
 
 form fieldset.buttons {
-    clear: both;
-    float: none;
-    margin: 0.5em 0.25em;
+     clear: both;
+     float: none;
+     margin: 0.5em 0.25em;
 }
 
 button {
-    background: none repeat scroll 0% 0% #F8F8F8;
-    border-radius: 6px 6px 6px 6px;
-    border: 1px solid #CCCCCC;
-    margin: 0em;
+     background: none repeat scroll 0% 0% #F3F3F3;
+     border-radius: 6px 6px 6px 6px;
+     border: 1px solid #CCCCCC;
+     margin: 0em;
 }
 
 button:hover {
-    background: none repeat scroll 0% 0% #F3F3F3;
-    border-color: #C9C9C9;
-    cursor: pointer;
+     background: none repeat scroll 0% 0% #F3F3F3;
+     border-color: #C9C9C9;
+     cursor: pointer;
 }
 
 button span {
-    display: block;
-    font-weight: bold;
-    padding: 0.5em;
+     display: block;
+     font-weight: bold;
+     padding: 0.5em;
 }
 
 form#login ul {
-    margin: 0pt;
-    padding: 0pt;
+     margin: 0pt;
+     padding: 0pt;
 }
 
 form#login fieldset.user {
-    position: relative;
+     position: relative;
 }
 
 form#login fieldset.user ul li {
-
+    
 }
 
 form#login fieldset.user ul li label {
-    display: none;
+     display: none;
 }
 
 form#login fieldset.user ul li.remember {
-    line-height: 2.5em;
-    text-align: center;
+     line-height: 2.5em;
+     text-align: center;
 }
 
 form#login fieldset.user ul li.remember label {
-    color: #666666;
-    display: inline;
-    float: none;
-    font-size: 105%;
-    line-height: 4em;
-    margin: 0pt 0.5em;
-    text-align: center;
+     color: #666666;
+     display: inline;
+     float: none;
+     font-size: 105%;
+     line-height: 4em;
+     margin: 0pt 0.5em;
+     text-align: center;
 }
 
 form#login fieldset.user ul li.remember input {
-    display: inline;
+     display: inline;
 }
 
 form#login fieldset ul li input[type="text"], form#login fieldset ul li input[type="password"], form#login fieldset ul li textarea {
-    text-align: center;
-    width: 95%;
+     text-align: center;
+     width: 95%;
 }
 
 form#login button.login, form#register button.register {
-    width: 100%;
+     width: 100%;
 }
 
 form#register fieldset ul li input[type="text"], form#register fieldset ul li input[type="password"], form#register fieldset ul li textarea {
-    text-align: center;
-    width: 95%;
+     text-align: center;
+     width: 95%;
 }
 
 form#register fieldset.prefs {
-    border-top: 2px dotted #C8C8C8;
-    margin: 1em 0pt 0pt;
-    padding: 1em 0pt 0pt;
+     border-top: 2px dotted #C8C8C8;
+     margin: 1em 0pt 0pt;
+     padding: 1em 0pt 0pt;
 }
 
 form.prefs fieldset ul li label {
-    color: #888888;
-    display: block;
-    float: none;
-    font-size: 90%;
-    text-align: inherit;
-    width: inherit;
+     color: #888888;
+     display: block;
+     float: none;
+     font-size: 90%;
+     text-align: inherit;
+     width: inherit;
+}
+
+form.prefs fieldset ul li input, form.prefs fieldset ul li textarea {
+     width: 97%;
+}
+
+form.prefs fieldset ul li textarea {
+     height: 9ex;
 }
 
 section#main {
-    position: relative;
+     position: relative;
 }
 
 .hidden {
-    display: none;
+     display: none;
 }
 
 p#to_docs {
-    margin: 0pt;
-    padding: 0pt;
-    position: absolute;
-    right: 0em;
-    top: 1em;
+     margin: 0pt;
+     padding: 0pt;
+     position: absolute;
+     right: 0em;
+     top: 1em;
 }
 
 .docs {
-    background: none repeat scroll 0% 0% #F8F8F8;
-    border-radius: 4px 4px 4px 4px;
-    border: 1px solid #DDDDDD;
-    clear: both;
-    margin: 0.5em 0pt;
-    padding: 0.75em;
+     background: none repeat scroll 0% 0% #F8F8F8;
+     border-radius: 4px 4px 4px 4px;
+     border: 1px solid #DDDDDD;
+     clear: both;
+     margin: 0.5em 0pt;
+     padding: 0.75em;
 }
 
 .pre-login {
-    display: block;
+     display: block;
 }
 
 .needs-login {
-    display: none;
+     display: none;
 }
 
 .logged-in .pre-login {
-    display: none;
+     display: none;
 }
 
 .logged-in .needs-login {
-    display: block;
+     display: block;
 }
 
 .logged-in .hidden {
-    display: none;
+     display: none;
 }
 
 #post-app .global-actions {
-    border: 0pt none;
-    margin: 0pt;
-    padding: 0pt;
-    position: absolute;
-    right: 0pt;
-    top: 0.25em;
+     border: 0pt none;
+     margin: 0pt;
+     padding: 0pt;
+     position: absolute;
+     right: 0pt;
+     top: 0.25em;
 }
 
 #post-app .global-actions fieldset {
-
+    
 }
 
-#post-app .profile {
-    float: left;
-    position: relative;
-    width: 25%;
-    border-radius: 4px 4px 4px 4px;
-    border: 1px solid #DDDDDD;
+#post-app .global-actions fieldset .avatar {
+     display: block;
+     float: left;
+     padding: 0.25em 0.75em;
 }
 
-#post-app .profile .avatar {
-    text-decoration: none;
-    display: block;
-    text-align: center;
-    width: 100px;
-}
-#post-app .profile .avatar img {
-    border-radius: 4px 4px 4px 4px;
-    margin: 0 auto 0.5em auto;
-    display: block;
-}
-#post-app .profile .avatar .displayName {
-    display: block;
-}
-
-#post-app .profile .wrapper {
-    margin: 0.5em;
-}
-
-#post-app .profile ul.outputs {
-    list-style: none outside none;
-    margin: 0pt;
-    padding: 0pt;
-    position: absolute;
-    top: 0.5em;
-    left: 110px;
-}
-
-#post-app .profile ul.outputs li {
-    list-style: none outside none;
-    margin: 0pt 0.5em;
-    padding: 0pt;
+#post-app .global-actions fieldset .avatar .displayName {
+     display: none;
 }
 
 #post-app form.activity {
-
+    
 }
 
 #post-app .activity-forms {
-    float: right;
-    width: 74%;
+    
 }
 
 #post-app .activity-forms #activity-post-note {
-    position: relative;
-    margin: 0;
+     margin: 0pt;
+     position: relative;
 }
 
 #post-app .activity-forms #activity-post-note textarea {
-    display: block;
-    height: 6.25em;
-    margin: -0.25em;
-    padding: 0.25em;
-    width: 100%;
+     display: block;
+     height: 4.25em;
+     margin: -0.25em;
+     padding: 0.25em;
+     width: 100%;
 }
 
 #post-app .activity-forms #activity-post-note button {
-    display: block;
-    margin: 0.75em 0pt 0pt;
-    width: 100%;
+     display: block;
+     margin: 0.75em 0pt 0pt;
+     width: 100%;
 }
 
 #post-app section.activities {
-    clear: both;
+     clear: both;
 }
 
 #post-app section.activities .stream {
-    list-style: none outside none;
-    margin: 0pt;
-    padding: 0pt;
+     list-style: none outside none;
+     margin: 0pt;
+     padding: 0pt;
 }
 
 #post-app section.activities .stream li.activity {
-    margin: 1em 0pt;
+     border-radius: 4px 4px 4px 4px;
+     border: 1px solid #DDDDDD;
+     margin: 1em 0pt;
+     min-height: 64px;
+     padding: 0pt;
+     position: relative;
+}
+
+#post-app section.activities .stream li.activity .published {
+     bottom: 0.25em;
+     color: #999999;
+     left: 64px;
+     padding: 0pt 0pt 0pt 1em;
+     position: absolute;
+     text-decoration: none;
+}
+
+#post-app section.activities .stream li.activity .actor {
+     left: 0pt;
+     position: absolute;
+     top: 0pt;
+}
+
+#post-app section.activities .stream li.activity .object {
+     margin-bottom: 2.5em;
+     margin-left: 64px;
 }
 
 #post-app section.activities .stream li.activity .object p.content {
-    margin: 0.5em 1.25em;
-    padding: 0pt;
+     margin: 0.5em 1em;
+     padding: 0pt;
+}
+
+#post-app section.activities .stream li.activity .actor img {
+     border-radius: 4px;
+     height: 64px;
+     margin: 0pt 1em 0pt 0pt;
+     width: 64px;
+}
+
+#post-app section.activities .stream li.activity .buttons {
+     position: absolute;
+     right: 0.125em;
+     bottom: 0.125em;
+}
+
+#post-app section.activities .stream li.activity .object p.content {
+    
 }
 
 @media screen and (min-width: 320px) and (max-width: 749px) {
-    #main { margin: 5px 10px; }
-    #main h1 { font-size: 125%; }
-    form fieldset ul li input {  }
-    form fieldset ul li textarea {  }
+  #main { margin: 5px 10px; }
+  #main h1 { font-size: 125%; }
+  #main h1 {  }
+  #main h1 img.icon {  }
+  #post-app .global-actions fieldset {  }
+  #post-app .global-actions fieldset .avatar { display: none; }
 }
 
 @media screen and (min-width: 750px) {
-    #main { width: 750px; margin: 0pt auto; }
-    .docs { padding: 8px 24px; margin: 24px auto; }
-    form#register fieldset.user, form#register fieldset.prefs { float: left; width: 49.5%; }
-    form#register fieldset.prefs { margin: 0pt; }
-    form#login fieldset.user ul li { float: left; }
-    form#login fieldset.user ul li input { width: 22ex; }
-    form#login fieldset.user ul li.remember label { display: inline; width: inherit; line-height: 2.5em; }
-    form#login fieldset.user ul li.remember input { display: inline; width: inherit; }
-    form#register fieldset.prefs { margin: 0pt; padding: 0pt; border: medium none; }
-    form.prefs fieldset ul li label { display: block; line-height: 2.5em; color: #888888; width: 8ex; }
+  body { color: #111111; font-family: Helvetica,Arial,sans-serif; font-size: 18px; }
+  p, li { font-size: 14px; }
+  #main { margin: 0pt auto; width: 750px; }
+  .docs { margin: 24px auto; padding: 8px 24px; }
+  form#register fieldset.user, form#register fieldset.prefs { float: left; width: 49.5%; }
+  form#register fieldset.prefs { margin: 0pt; }
+  form#login fieldset.user ul li { float: left; }
+  form#login fieldset.user ul li input { width: 22ex; }
+  form#login fieldset.user ul li.remember label { display: inline; line-height: 2.5em; width: inherit; }
+  form#login fieldset.user ul li.remember input { display: inline; width: inherit; }
+  form#register fieldset.prefs { border: medium none; margin: 0pt; padding: 0pt; }
+  form.prefs fieldset ul li label { color: #888888; display: block; line-height: 2.5em; width: 8ex; }
+  form.prefs fieldset ul li label { color: #888888; display: block; float: left; font-size: 95%; margin-right: 1em; text-align: right; width: 6.5ex; }
+  form.prefs fieldset ul li input, form.prefs fieldset ul li textarea { width: 90%; }
+  form.prefs fieldset.buttons button.save, form.prefs fieldset.buttons button.cancel { float: right; margin-left: 0.5em; }
 }

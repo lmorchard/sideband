@@ -7,16 +7,16 @@ var Sideband_Avatar = function () {
 _.extend(Sideband_Avatar.prototype, {
     defaults: {
         email: '',
-        size: 80,
+        size: 64,
         base: 'http://www.gravatar.com/avatar/'
     },
     init: function (options) {
         this.options = _.extend({}, this.defaults, options);
     },
-    url: function (email, size) {
+    url: function (size) {
         return this.options.base +
             hex_md5(this.options.email) +
-            '?s=' + this.options.size;
+            '?s=' + (size || this.options.size);
     }
 });
 
@@ -88,30 +88,25 @@ var Sideband_Views_App = Backbone.View.extend({
 
     login: function () {
         var $this = this;
-        $(document.body).addClass('logged-in');
 
+        var display_name = this.prefs.get('displayName');
         var avatar = new Sideband_Avatar({ 
             email: this.prefs.get('email')
         });
-    try {
-        $('.profile .avatar')
-            .attr('href', this.prefs.get('url'))
+
+        $('.global-actions .avatar')
             .find('img')
-                .attr('src', avatar.url())
+                .attr('src', avatar.url(24))
+                .attr('title', display_name)
             .end()
             .find('.displayName')
-                .text(this.prefs.get('displayName'))
-            .end()
-            ;
+                .text(display_name)
+            .end();
 
-        this.$('ul.urls li a').each(function (i, raw) {
-            var el = $(raw),
-                href = '/'+$this.prefs.bucket+'/'+el.attr('data-url');
-            el.attr('href', href);
-        });
-    } catch (e) { console.error(e); }
         this.login_form.reset();
         this.register_form.reset();
+
+        $(document.body).addClass('logged-in');
     },
 
     logout: function () {
@@ -141,7 +136,7 @@ var Sideband_Views_App = Backbone.View.extend({
     installApp: function (ev) {
         var $this = this;
         navigator.mozApps.install(
-            "/sideband/app.webapp",
+            "app.webapp",
             null,
             function (result) {
                 window.alert("Thanks for installing Sideband. Check your App Dashboard!");
@@ -318,12 +313,11 @@ var Sideband_Views_PrefsForm = Sideband_Views_Form.extend({
 
 var Sideband_Views_ActivityForm = Backbone.View.extend({
     GRAVATAR_BASE: 'http://www.gravatar.com/avatar/',
-    GRAVATAR_SIZE: 80,
+    GRAVATAR_SIZE: 64,
 
     events: {
         'submit': 'commit',
         'click button.post': 'commit',
-        'click button.reset': 'reset'
     },
     
     initialize: function (options) {
@@ -334,43 +328,31 @@ var Sideband_Views_ActivityForm = Backbone.View.extend({
 
     editActivity: function (a) {
         this.activity = a;
-        
-        var actor = a.get('actor');
-        this.$('#actor_url').val(actor.url);
-        this.$('#actor_displayName').val(actor.displayName);
-        
-        this.$('#verb').val(a.get('verb'));
-
         var object = a.get('object');
-        this.$('#object_type').val(object.type);
-        this.$('#object_displayName').val(object.displayName);
-        this.$('#object_content').val(object.content);
+        this.$('*[name=content]').val(object.content);
     },
 
-    gravatarUrl: function (email, size) {
-        size = size || this.GRAVATAR_SIZE;
-        return this.GRAVATAR_BASE + hex_md5(email) + '?s=' + size;
-    },
-    
     commit: function () {
-        try {
         var $this = this;
+        var prefs = this.parent.prefs;
+        var avatar = new Sideband_Avatar({ 
+            email: prefs.get('email')
+        });
         var data = {
             actor: {
-                displayName: this.parent.prefs.get('displayName'),
-                url: this.parent.prefs.get('url'),
-                summary: this.parent.prefs.get('summary'),
+                displayName: prefs.get('displayName'),
+                url: prefs.get('url'),
+                summary: prefs.get('summary'),
                 image: {
-                    url: this.gravatarUrl(this.parent.prefs.get('email')),
-                    width: this.GRAVATAR_SIZE,
-                    height: this.GRAVATAR_SIZE
+                    url: avatar.url(),
+                    width: avatar.size,
+                    height: avatar.size
                 }
             },
-            verb: this.$('#verb').val(),
+            verb: 'post',
             object: {
-                type: this.$('#object_type').val(),
-                displayName: this.$('#object_displayName').val(),
-                content: this.$('#object_content').val()
+                type: 'note',
+                content: this.$('*[name=content]').val()
             }
         };
         var options = {
@@ -386,18 +368,12 @@ var Sideband_Views_ActivityForm = Backbone.View.extend({
         } else {
             this.activity.save(data, options);
         }
-    } catch (e) { console.error(e); }
         return false;
     },
 
     reset: function () {
         this.activity = null;
-        this.$('#actor_url').val('');
-        this.$('#actor_displayName').val('');
-        this.$('#verb').val('');
-        this.$('#object_type').val('');
-        this.$('#object_displayName').val('');
-        this.$('#object_content').val('');
+        this.$('*[name=content]').val('');
         return false;
     }
 
@@ -480,33 +456,40 @@ var Sideband_Views_Activity = Backbone.View.extend({
     },
 
     render: function () {
-        var a = this.activity;
-        if (!a) { return; }
+        try {
+            var a = this.activity;
+            if (!a) { return; }
 
-        this.el.attr('id', 'activity-' + a.get('id'));
-        this.$('.published')
-            .attr('datetime', a.get('published'))
-            .text(a.get('published'));
+            this.el.attr('id', 'activity-' + a.get('id'));
 
-        var o = a.get('object');
-        this.$('.object')
-            .find('.displayName')
-                .attr('href', '/' + this.parent.parent.prefs.bucket + '/' + a.url())
-                .text(o.displayName)
-            .end()
-            .find('.content')
-                .html(o.content)
-            .end();
+            var published = a.get('published');
 
-        var i = a.get('actor').image;
-        if (i) {
-            this.$('.image')
-                .attr('src', i.url)
-                .attr('width', i.width)
-                .attr('height', i.height);
+            this.$('.published')
+                .attr('href', a.get('id'))
+                .find('time')
+                    .attr('datetime', published)
+                    .text(published);
+
+            var o = a.get('object');
+            this.$('.object')
+                .find('.content')
+                    .html(o.content)
+                .end();
+
+            var i = a.get('actor').image;
+            if (i) {
+                this.$('.actor')
+                    .find('.image')
+                        .attr('src', i.url)
+                        //.attr('width', i.width)
+                        //.attr('height', i.height)
+                        ;
+            }
+
+            this.el.find('.timeago').timeago();
+        } catch (e) {
+            console.error(e);
         }
-
-        this.el.find('.timeago').timeago();
 
         return this;
     },
